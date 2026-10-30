@@ -67,6 +67,13 @@ class TestCodonTableGenerator(unittest.TestCase):
     def test_invalid_sequence_type(self):
         output = self.run_program("PROTEIN\nATGGCT\n")
         self.assertIn("Invalid sequence type", output)
+    
+    
+    def test_lowercase_sequence(self):
+        output = self.run_program("DNA\natggctttttaa\n")
+        self.assertIn("Methionine", output)
+        self.assertIn("Alanine", output)
+        self.assertIn("Phenylalanine", output)
 
 if __name__ == "__main__":
     unittest.main()
