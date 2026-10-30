@@ -55,6 +55,10 @@ class TestCodonTableGenerator(unittest.TestCase):
 
         self.assertEqual(len(expected_codons), 64)
 
+    def test_empty_sequence(self):
+        output = self.run_program("DNA\n\n")
+        self.assertIn("Sequence cannot be empty", output)
+
 if __name__ == "__main__":
     unittest.main()
 

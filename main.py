@@ -3,12 +3,17 @@ import sys
 print("Welcome to Codon Table Generator")
 
 sequence_type = input("Enter sequence type (DNA/RNA): ").upper()
+
 if sequence_type != "DNA" and sequence_type != "RNA":
     print("Invalid sequence type.")
     sys.exit()
 
 dna_sequence = input("Enter the sequence: ")
 dna_sequence = dna_sequence.upper()
+
+if dna_sequence == "":
+    print("Sequence cannot be empty.")
+    sys.exit()
 
 if sequence_type == "RNA":
     dna_sequence = dna_sequence.replace("U", "T")
