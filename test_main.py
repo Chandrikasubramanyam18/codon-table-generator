@@ -79,6 +79,10 @@ class TestCodonTableGenerator(unittest.TestCase):
         output = self.run_program("DNA\nTAATAGTGA\n")
         self.assertIn("Stop codons: ['TAA', 'TAG', 'TGA']", output)
 
+    def test_start_codon(self):
+        output = self.run_program("DNA\nATGGCT\n")
+        self.assertIn("Start codons: ['ATG']", output)
+
 if __name__ == "__main__":
     unittest.main()
 
