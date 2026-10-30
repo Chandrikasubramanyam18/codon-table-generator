@@ -63,6 +63,10 @@ class TestCodonTableGenerator(unittest.TestCase):
         output = self.run_program("DNA\nATG GCT TTT TAA\n")
         self.assertIn("Methionine", output)
         self.assertIn("Alanine", output)
+    
+    def test_invalid_sequence_type(self):
+        output = self.run_program("PROTEIN\nATGGCT\n")
+        self.assertIn("Invalid sequence type", output)
 
 if __name__ == "__main__":
     unittest.main()
