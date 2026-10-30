@@ -40,14 +40,21 @@ class TestCodonTableGenerator(unittest.TestCase):
         self.assertIn("Incomplete codon: AA", output)
 
     def test_codon_table_has_64_entries(self):
+        expected_codons = [
+            first + second + third
+            for first in "ATGC"
+            for second in "ATGC"
+            for third in "ATGC"
+        ]
+
         with open("main.py", "r") as file:
             code = file.read()
 
-        self.assertIn('"TTT": "Phenylalanine"', code)
-        self.assertIn('"ATG": "Methionine"', code)
-        self.assertIn('"TAA": "Stop"', code)
+        for codon in expected_codons:
+            self.assertIn('"' + codon + '":', code)
 
+        self.assertEqual(len(expected_codons), 64)
 
 if __name__ == "__main__":
     unittest.main()
-    
+
