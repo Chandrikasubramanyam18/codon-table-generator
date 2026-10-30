@@ -83,6 +83,11 @@ class TestCodonTableGenerator(unittest.TestCase):
         output = self.run_program("DNA\nATGGCT\n")
         self.assertIn("Start codons: ['ATG']", output)
 
+    def test_sequence_with_only_incomplete_codon(self):
+        output = self.run_program("DNA\nAT\n")
+        self.assertIn("Incomplete codon: AT", output)
+        self.assertIn("Codons: []", output)
+
 if __name__ == "__main__":
     unittest.main()
 
