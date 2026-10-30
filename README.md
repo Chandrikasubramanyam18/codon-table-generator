@@ -72,3 +72,26 @@ https://www.ncbi.nlm.nih.gov/datasets/docs/v2/data-processing/taxonomy-processin
 
 ## Author
 Python Assessment Project
+
+## Comparison with an Existing GitHub Project
+
+I compared my codon table with the Python project
+[Genetic Codes by linsalrob](https://github.com/linsalrob/genetic_codes).
+
+The reference project supports the NCBI standard genetic code
+(translation table 1).
+
+Both projects use the standard genetic code to translate codons.
+My project displays the complete amino acid names, while the
+reference project also supports one-letter and three-letter codes.
+
+My project supports DNA and RNA input by converting RNA bases
+(U) into DNA bases (T). The reference project can accept both
+DNA and RNA codons directly.
+
+The comparison shows that my codon table follows the standard
+genetic code. The main difference is how the amino acids and
+input sequences are represented.
+
+Reference:
+https://github.com/linsalrob/genetic_codes
