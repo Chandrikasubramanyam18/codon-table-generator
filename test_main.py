@@ -58,6 +58,11 @@ class TestCodonTableGenerator(unittest.TestCase):
     def test_empty_sequence(self):
         output = self.run_program("DNA\n\n")
         self.assertIn("Sequence cannot be empty", output)
+    
+    def test_sequence_with_spaces(self):
+        output = self.run_program("DNA\nATG GCT TTT TAA\n")
+        self.assertIn("Methionine", output)
+        self.assertIn("Alanine", output)
 
 if __name__ == "__main__":
     unittest.main()

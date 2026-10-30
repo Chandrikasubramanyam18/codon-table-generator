@@ -9,7 +9,7 @@ if sequence_type != "DNA" and sequence_type != "RNA":
     sys.exit()
 
 dna_sequence = input("Enter the sequence: ")
-dna_sequence = dna_sequence.upper()
+dna_sequence = dna_sequence.upper().replace(" ", "")
 
 if dna_sequence == "":
     print("Sequence cannot be empty.")
