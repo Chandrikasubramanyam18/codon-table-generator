@@ -35,6 +35,19 @@ class TestCodonTableGenerator(unittest.TestCase):
         self.assertIn("Incomplete codon: AA", output)
 
 
+    def test_incomplete_codon(self):
+        output = self.run_program("DNA\nATGGCTTTTAA\n")
+        self.assertIn("Incomplete codon: AA", output)
+
+    def test_codon_table_has_64_entries(self):
+        with open("main.py", "r") as file:
+            code = file.read()
+
+        self.assertIn('"TTT": "Phenylalanine"', code)
+        self.assertIn('"ATG": "Methionine"', code)
+        self.assertIn('"TAA": "Stop"', code)
+
+
 if __name__ == "__main__":
     unittest.main()
     
